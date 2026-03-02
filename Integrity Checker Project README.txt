@@ -1,0 +1,7 @@
+My integrity checker is basically a simplified take on Tripwire, which is this open-source file integrity monitoring tool. It sets up baselines for system files using hashes and sends alerts if there's any unauthorized tinkering, like from hackers. My version does the same but for a specific directory, perfect for keeping an eye on important stuff like config files or backups.
+It's also kinda like the sha256sum command on Linux for checking file hashes to make sure they're intact. Or like the file integrity monitoring in Windows Defender for Cloud or Endpoint, where it scans OS files and registries for weird changes. In bigger setups, tools like OSSEC (a host intrusion detection system with log analysis, rootkit spotting, and active responses) or AIDE (a free alternative to Tripwire for checking files and directories) take it further.
+In cybersecurity, this can catch things like ransomware messing with files (modifications), insiders deleting stuff, or supply chain attacks sneaking in bad files. Downsides: My tool needs manual runs, while the pro versions automate everything with schedules, email notifications, and reports for compliance.
+What I learned: Hashing creates this "immutability" where even a small change flips the entire hash. Cool idea for the future: Hook it up with cron jobs for automatic scans.
+Challenges: You get false positives from legitimate updates, but real tools handle that with whitelists to skip certain things.
+
+This project showed me how simple hashing can prevent big security issues.

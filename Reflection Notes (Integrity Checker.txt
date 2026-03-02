@@ -1,0 +1,28 @@
+Reflection Notes (Integrity Checker)
+
+1. Code Implementation Highlights
+
+Successfully added compute_hash function: Handles file reading in chunks (using 4096 bytes) to manage large files efficiently—prevents memory overload.
+Implemented create_baseline: Uses os.walk() for recursive directory scanning, stores hashes in a dictionary, and saves to JSON with json.dump() for readability (indent=4).
+Temporary test lines: Learned to add quick calls like print(compute_hash(r'path\to\file')) or create_baseline(r'path\to\directory') for immediate verification—great for iterative development.
+
+2. Testing and Debugging Insights
+
+Single file hashing: Saw how SHA-256 produces unique hex strings; modifying a file (e.g., adding a space in example.txt) completely changes the hash, demonstrating the "avalanche effect."
+Baseline generation: Confirmed baseline.json creation with file paths as keys and hashes as values—tested on "Secure_files" directory.
+Common fixes: Dealt with SyntaxError from missing quotes in paths; used raw strings (r'') to handle backslashes in Windows paths. Also, checked for silent runs by adding diagnostic prints (e.g., "Starting baseline...") to trace execution flow.
+Edge cases: Noted what happens with empty directories (empty JSON) or non-file items (skipped via error handling).
+
+3. Core Concepts Reinforced
+
+Hashing in cybersecurity: Understood how one-way functions like SHA-256 create digital fingerprints for integrity checks—essential for detecting tampering, malware, or unauthorized changes (e.g., ransomware).
+Baseline vs. Verification: Today focused on the "snapshot" phase; this sets up for later comparisons to flag modifications, additions, or deletions.
+Python practicals: Gained hands-on with modules (hashlib for crypto, os for paths/directories, json for data persistence). Realized importance of binary mode ('rb') for universal file handling.
+
+4. Personal Learnings and Challenges
+
+What went well: Code pasting and basic runs succeeded after initial tweaks; testing reinforced why we hash in chunks (efficiency for big files).
+Challenges overcome: Path issues on Windows (e.g., escaping \U in strings); no-output bugs taught me to use prints for debugging—turns "black box" code into transparent steps.
+Skills boosted: Problem-solving (e.g., reading error messages like "invalid syntax"); attention to detail (indentation, saving files before running).
+Next steps reflection: How does this scale? (E.g., for larger directories or automation.) What if permissions block access? Ties into real tools like Tripwire.
+Overall growth: Building from setup (Monday) to functional code feels empowering—small wins like seeing a hash change motivate for Thursday's verification.

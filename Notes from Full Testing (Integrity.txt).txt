@@ -1,0 +1,15 @@
+Notes from Full Testing (Integrity checker) 
+
+before creating a new baseline, I added a new file, to my 'Secure_files' folder, this was a 'Test New File'
+
+Also in the 'Secure_files' folder. There are also 3 files: Example.txt, New File.txt and Sky-PNG-Isolated-Pic.png.
+
+After creating the new baseline, and is now saved I made some modification to the 'Secure_files' folder.
+
+I removed 'Example.txt' and made some modifications to 'New File.txt'.
+
+After that I verified if any changes made to 'Secure_files'
+
+the results showed that 'Example.txt' was missing and 'New File.txt' has been modified.
+
+This accurately reflects changes
